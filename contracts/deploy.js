@@ -8,8 +8,8 @@ async function main() {
   const ClaimVault = await ethers.getContractFactory("ClaimVault");
 
   // Deploy the contract
-  // Replace with actual admin address
-  const adminAddress = "0x742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6"; // Example admin address
+  // Get admin address from environment variable or use deployer as admin
+  const adminAddress = process.env.ADMIN_ADDRESS || (await ethers.getSigners())[0].address;
   
   const claimVault = await ClaimVault.deploy(adminAddress);
 

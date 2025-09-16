@@ -14,8 +14,8 @@ module.exports = {
   },
   networks: {
     sepolia: {
-      url: "https://sepolia.infura.io/v3/b18fb7e6ca7045ac83c41157ab93f990",
-      accounts: [], // Add your private keys here
+      url: process.env.RPC_URL || "https://sepolia.infura.io/v3/YOUR_INFURA_KEY",
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [], // Add your private keys here
       chainId: 11155111,
     },
     localhost: {
@@ -28,7 +28,7 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
-      sepolia: "YOUR_ETHERSCAN_API_KEY", // Add your Etherscan API key
+      sepolia: process.env.ETHERSCAN_API_KEY || "YOUR_ETHERSCAN_API_KEY", // Add your Etherscan API key
     },
   },
 };

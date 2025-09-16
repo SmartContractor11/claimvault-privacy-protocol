@@ -49,7 +49,7 @@ const CLAIM_VAULT_ABI = [
 ] as const;
 
 // Contract address - This would be your deployed contract address
-const CLAIM_VAULT_ADDRESS = '0x0000000000000000000000000000000000000000'; // Replace with actual address
+const CLAIM_VAULT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || '0x0000000000000000000000000000000000000000';
 
 export function useClaimVault() {
   const { address, isConnected } = useAccount();
